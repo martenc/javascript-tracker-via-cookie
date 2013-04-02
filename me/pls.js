@@ -53,15 +53,15 @@ var QueryString = function () {
 
 // check if user has content ref cookie
 var contentrefid;
-if (readTRCCookie('ayztrc') != undefined) {
-	contentrefid = readTRCCookie('ayztrc');
+if (readTRCCookie('trc') != undefined) {
+	contentrefid = readTRCCookie('trc');
 }
 else {
 	// check if crefid qs is present in the url
 	if (QueryString.crefid != undefined) {
 		contentrefid = QueryString.crefid;
 		// create cookie 
-		createTRCCookie('ayztrc', contentrefid, 90)
+		createTRCCookie('trc', contentrefid, 90)
 	}
 }
 
@@ -87,6 +87,6 @@ if (contentrefid != undefined) {
 	serialisedGetParams = serialisedGetParams.join('&');
 
 	// call our pixel
-	(new Image).src = 'http://ayztrc.aws.af.cm/pixel?' + serialisedGetParams;
+	(new Image).src = 'http://yourdomain.com/pixel?' + serialisedGetParams;
 }
 
